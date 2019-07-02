@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
-import Ninjas from './Ninjas';
-
+import Navbar from "./components/navbar"
+import {BrowserRouter, Route, Switch} from "react-router-dom"
+import About from "./components/About"
+import Home from "./components/Home"
+import Post from "./components/Post"
 
 class App extends Component {
-  render () {
-    return(
-      <div className="App">
-      <h1> aawe awe awe awe</h1>
-      <p>what I do </p>
-      <Ninjas/>
-    </div>
-    );
-  }
+	
+	render(){
+		return(
+			<BrowserRouter>
+				<div className='todo-app'>
+					<Navbar/>
+					<Switch>
+						<Route path="/about" component={ About }/>
+						<Route path="/home" component={ Home }/>
+						<Route path="/:post_id" component={ Post }/>
+					</Switch>
+				</div>
+			</BrowserRouter>
+		)	
+	}
 }
 export default App;
